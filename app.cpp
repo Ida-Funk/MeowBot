@@ -3,8 +3,6 @@
 #include "move.h"
 #include "sound.h"
 
-//extern IRrecv IrReceiver;
-
 // Ultraljudspinnar
 const int TRIG_PIN = A4;
 const int ECHO_PIN = A5;
@@ -36,7 +34,7 @@ void hopAndPlaySafe() {
     if (distanceCM() <= STOP_CM) {
       moveStop();
      // IrReceiver.stop();
-     // hiss(400);
+      hiss(400);
       //IrReceiver.start();
       moveBackward(160); delay(220);
       moveLeft(170); delay(220);
@@ -56,7 +54,7 @@ void hopAndPlaySafe() {
 
   // ljud
   //IrReceiver.stop();
-  //chirp(240);
-  //purr(700);
+  chirp(240);
+  purr(700);
   //IrReceiver.start();
 }

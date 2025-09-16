@@ -1,5 +1,11 @@
 #pragma once
 #include <Arduino.h>
+#ifndef MOVE_H
+#define MOVE_H
+
+// extern const int motorLeft;
+// extern const int motorRight;
+void moveForward();
 
 void moveSetup();  // init pins, stoppa motorer
 
@@ -8,3 +14,5 @@ void moveBackward(int spd);
 void moveLeft(int spd);
 void moveRight(int spd);
 void moveStop();
+
+#endif // MOVE_H

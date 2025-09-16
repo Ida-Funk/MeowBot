@@ -1,48 +1,32 @@
 #include <Arduino.h>
 
-const int LEFT_FORWARD_PIN = 1;
-const int LEFT_BACKWARD_PIN = 2;
-const int RIGHT_FORWARD_PIN = 3;
-const int RIGHT_BACKWARD_PIN = 4;
+const int MotorA1 = 6;  //in3
+const int MotorA2 = 7; //in4
 
-void setup() {
-    pinMode(LEFT_FORWARD, OUTPUT);
-    pinMode(LEFT_BACKWARD, OUTPUT);
-    pinMode(RIGHT_FORWARD, OUTPUT);
-    pinMode(RIGHT_BACKWARD, OUTPUT);
+const int MotorB1 = 4; // in 2
+const int MotorB2 = 5; // in 1
+
+void moveSetup(){
+    pinMode(MotorA1, OUTPUT);
+    pinMode(MotorA2, OUTPUT);
+    pinMode(MotorB1, OUTPUT);
+    pinMode(MotorB2, OUTPUT);
+
+    // moveStop();
 }
 
 void moveForward() {
-    digitalWrite(LEFT_FORWARD, HIGH);
-    digitalWrite(LEFT_BACKWARD, LOW);
-    digitalWrite(RIGHT_FORWARD, HIGH);
-    digitalWrite(RIGHT_BACKWARD, LOW);
+    digitalWrite(MotorA1, LOW);
+    digitalWrite(MotorA2, HIGH);
+
+    digitalWrite(MotorB1, LOW);
+    digitalWrite(MotorB2, HIGH);
 }
 
-void moveBackward() {
-    digitalWrite(LEFT_FORWARD, LOW);
-    digitalWrite(LEFT_BACKWARD, HIGH);
-    digitalWrite(RIGHT_FORWARD, LOW);
-    digitalWrite(RIGHT_BACKWARD, HIGH);
-}
+void moveStop(){
+    digitalWrite(MotorA1, LOW);
+    digitalWrite(MotorA2, LOW);
 
-void turnRight() {
-    digitalWrite(LEFT_FORWARD, HIGH);
-    digitalWrite(LEFT_BACKWARD, LOW);
-    digitalWrite(RIGHT_FORWARD, LOW);
-    digitalWrite(RIGHT_BACKWARD, HIGH);
-}
-
-void turnLeft() {
-    digitalWrite(LEFT_FORWARD, LOW);
-    digitalWrite(LEFT_BACKWARD, HIGH);
-    digitalWrite(RIGHT_FORWARD, HIGH);
-    digitalWrite(RIGHT_BACKWARD, LOW);
-}
-
-void stopMotors() {
-    digitalWrite(LEFT_FORWARD, LOW);
-    digitalWrite(LEFT_BACKWARD, LOW);
-    digitalWrite(RIGHT_FORWARD, LOW);
-    digitalWrite(RIGHT_BACKWARD, LOW);
+    digitalWrite(MotorB1, LOW);
+    digitalWrite(MotorB2, LOW);  
 }

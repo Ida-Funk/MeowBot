@@ -3,6 +3,7 @@
 #include <IRremote.h>
 #include "sound.h"
 #include "clap.h"
+#include "move.h"
 
 // --- IR-knappar (raw codes från sniff) ---
 #define IR_BTN_1      0xFB040707
@@ -126,6 +127,10 @@ void loop() {
         IrReceiver.start();
         Serial.println("caterwaul() end");
         break;
+        
+      case 10:
+            Serial.println("move forward!");
+            moveForward();
 
       // case 10..13: lägg motor/servo-styrning här om du vill
     }

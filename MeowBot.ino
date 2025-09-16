@@ -44,6 +44,11 @@ void loop() {
 
       if (raw == IR_BTN_1)         currentCommand = 4;  // meow
       else if (raw == IR_BTN_2)    currentCommand = 5;  // hiss
+      else if (raw == IR_BTN_3)    currentCommand = 6;  // purr
+      else if (raw == IR_BTN_4)    currentCommand = 7;  // chirp
+      else if (raw == IR_BTN_5)   currentCommand = 8;  // chatter
+      //else if (raw == IR_BTN_6) currentCommand = 9;  // growl
+      else if (raw == IR_BTN_6)    currentCommand = 14; 
       else if (raw == IR_BTN_UP)   {/* currentCommand = 10; */}
       else if (raw == IR_BTN_DOWN) {/* currentCommand = 11; */}
       else if (raw == IR_BTN_LEFT) {/* currentCommand = 12; */}
@@ -83,6 +88,43 @@ void loop() {
         hiss(600);
         IrReceiver.start();
         Serial.println("hiss() end");
+        break;
+
+      case 6:
+        Serial.println("purr() start");
+        IrReceiver.stop();        // undvik timer-krockar med tone()
+        purr(1500);               // spinn i 1.5 s (ändra efter smak)
+        IrReceiver.start();
+        Serial.println("purr() end");
+        break;
+
+      case 7: // chirp
+        Serial.println("chirp()");
+        IrReceiver.stop();
+        chirp(240);
+        IrReceiver.start();
+        break;
+
+      case 8: // chatter
+        Serial.println("chatter()");
+        IrReceiver.stop();
+        chatter(10, 55); // 10 hack, ~55 ms styck
+        IrReceiver.start();
+        break;
+
+      case 9: // growl
+        Serial.println("growl()");
+        IrReceiver.stop();
+        growl(800);
+        IrReceiver.start();
+        break;
+      
+      case 14:
+        Serial.println("caterwaul() start");
+        IrReceiver.stop();
+        caterwaul(2000);          // 2 s ylande
+        IrReceiver.start();
+        Serial.println("caterwaul() end");
         break;
 
       // case 10..13: lägg motor/servo-styrning här om du vill

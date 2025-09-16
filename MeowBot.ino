@@ -67,8 +67,8 @@ void loop() {
 //     // //   else if (raw == IR_BTN_UP && )   { currentCommand = 10; }
 //     //   else if (raw == IR_BTN_DOWN) {/* currentCommand = 11; */}
 //     //   else if (raw == IR_BTN_LEFT) {/* currentCommand = 12; */}
-//     //   else if (raw == IR_BTN_RIGHT){/* currentCommand = 13; */}
-    }
+//     //   else if (raw == IR_BTN_RIGHT){/* currentCommand = 13; */}    
+
     IrReceiver.resume();
   }
 
@@ -145,9 +145,6 @@ void loop() {
       case 10:
             Serial.println("move forward!");
             moveForward();
-    case 10:
-        Serial.println("move forward!");
-        moveForward();
 
       // case 10..13: lägg motor/servo-styrning här om du vill
     }

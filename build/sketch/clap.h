@@ -1,4 +1,4 @@
-#line 1 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\clap.h"
+#line 1 "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\MeowBot\\clap.h"
 #ifndef CLAP_H
 #define CLAP_H
 

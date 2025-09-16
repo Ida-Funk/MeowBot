@@ -1,10 +1,13 @@
 #include <Arduino.h>
-#line 1 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
+#line 1 "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\MeowBot\\MeowBot.ino"
 #define RECV_PIN 11
 #define BUZZER_PIN 8
+// #define TRIGG_PIN 4
+// #define ECCO_PIN 5
 #include <IRremote.h>
 #include "sound.h"
 #include "clap.h"
+#include "move.h"
 
 // --- IR-knappar (raw codes från sniff) ---
 #define IR_BTN_1      0xFB040707
@@ -13,27 +16,31 @@
 #define IR_BTN_4      0xF7080707
 #define IR_BTN_5      0xF6090707
 #define IR_BTN_6      0xF50A0707
+
 #define IR_BTN_UP     0x9F600707
-#define IR_BTN_DOWN   0x9E610707
 #define IR_BTN_LEFT   0x9A650707
 #define IR_BTN_RIGHT  0x9D620707
+#define IR_BTN_DOWN   0x9E610707
+// #define IR_BTN_OK
 
 IRrecv irrecv(RECV_PIN);
 
 volatile int currentCommand = 0; // 4=meow, 5=hiss (enligt din switch)
 const int MIC_PIN = A0;          // ← mic på A0
 
-
-#line 25 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
+#line 29 "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\MeowBot\\MeowBot.ino"
 void setup();
-#line 32 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
+#line 39 "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\MeowBot\\MeowBot.ino"
 void loop();
-#line 25 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
-void setup() {
-  Serial.begin(115200);
-  Serial.println("Start");
-  IrReceiver.begin(RECV_PIN, ENABLE_LED_FEEDBACK); // Starta mottagaren
-  clapSetup(MIC_PIN);            // ← starta klappdetektering
+#line 29 "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\MeowBot\\MeowBot.ino"
+void setup() {  
+    moveSetup();
+
+    Serial.begin(115200);
+    Serial.println("Start");
+    IrReceiver.begin(RECV_PIN, ENABLE_LED_FEEDBACK); // Starta mottagaren
+    clapSetup(MIC_PIN);            // ← starta klappdetektering
+
 }
 
 void loop() {
@@ -56,11 +63,24 @@ void loop() {
       else if (raw == IR_BTN_5)   currentCommand = 8;  // chatter
       //else if (raw == IR_BTN_6) currentCommand = 9;  // growl
       else if (raw == IR_BTN_6)    currentCommand = 14; 
-      else if (raw == IR_BTN_UP)   {/* currentCommand = 10; */}
-      else if (raw == IR_BTN_DOWN) {/* currentCommand = 11; */}
-      else if (raw == IR_BTN_LEFT) {/* currentCommand = 12; */}
-      else if (raw == IR_BTN_RIGHT){/* currentCommand = 13; */}
+      else if (raw == IR_BTN_UP){ 
+        currentCommand = 10;
+     }
+      else if (raw == IR_BTN_DOWN) { 
+        currentCommand = 11;
     }
+      else if (raw == IR_BTN_LEFT) { 
+        currentCommand = 12; 
+    }
+      else if (raw == IR_BTN_RIGHT){
+         currentCommand = 13; 
+        }
+
+    // else if(raw == IR_BTN_OK){
+    //     currentCommand = 15;
+    // }
+    }
+
     IrReceiver.resume();
   }
 
@@ -77,67 +97,92 @@ void loop() {
   static unsigned long lastActionMs = 0;        // enkel cooldown
   const unsigned long COOLDOWN_MS = 150;        // fintrimma vid behov
 
-  if (currentCommand != 0 && millis() - lastActionMs > COOLDOWN_MS) {
-    lastActionMs = millis();
+    if (currentCommand != 0 && millis() - lastActionMs > COOLDOWN_MS) {
+        lastActionMs = millis();
 
-    switch (currentCommand) {
-      case 4:
-        Serial.println("meow() start");
-        IrReceiver.stop();
-        meow();
-        IrReceiver.start(); // 
-        Serial.println("meow() end");
-        break;
+        switch (currentCommand) {
+            case 4:
+                Serial.println("meow() start");
+                IrReceiver.stop();
+                meow();
+                IrReceiver.start(); // 
+                Serial.println("meow() end");
+                break;
 
-      case 5:
-        Serial.println("hiss() start");
-        IrReceiver.stop();
-        hiss(600);
-        IrReceiver.start();
-        Serial.println("hiss() end");
-        break;
+            case 5:
+                Serial.println("hiss() start");
+                IrReceiver.stop();
+                hiss(600);
+                IrReceiver.start();
+                Serial.println("hiss() end");
+                break;
 
-      case 6:
-        Serial.println("purr() start");
-        IrReceiver.stop();        // undvik timer-krockar med tone()
-        purr(1500);               // spinn i 1.5 s (ändra efter smak)
-        IrReceiver.start();
-        Serial.println("purr() end");
-        break;
+            case 6:
+                Serial.println("purr() start");
+                IrReceiver.stop();        // undvik timer-krockar med tone()
+                purr(1500);               // spinn i 1.5 s (ändra efter smak)
+                IrReceiver.start();
+                Serial.println("purr() end");
+                break;
 
-      case 7: // chirp
-        Serial.println("chirp()");
-        IrReceiver.stop();
-        chirp(240);
-        IrReceiver.start();
-        break;
+            case 7: // chirp
+                Serial.println("chirp()");
+                IrReceiver.stop();
+                chirp(240);
+                IrReceiver.start();
+                break;
 
-      case 8: // chatter
-        Serial.println("chatter()");
-        IrReceiver.stop();
-        chatter(10, 55); // 10 hack, ~55 ms styck
-        IrReceiver.start();
-        break;
+            case 8: // chatter
+                Serial.println("chatter()");
+                IrReceiver.stop();
+                chatter(10, 55); // 10 hack, ~55 ms styck
+                IrReceiver.start();
+                break;
 
-      case 9: // growl
-        Serial.println("growl()");
-        IrReceiver.stop();
-        growl(800);
-        IrReceiver.start();
-        break;
-      
-      case 14:
-        Serial.println("caterwaul() start");
-        IrReceiver.stop();
-        caterwaul(2000);          // 2 s ylande
-        IrReceiver.start();
-        Serial.println("caterwaul() end");
-        break;
+            case 9: // growl
+                Serial.println("growl()");
+                IrReceiver.stop();
+                growl(800);
+                IrReceiver.start();
+                break;
+            
+            case 14:
+                Serial.println("caterwaul() start");
+                IrReceiver.stop();
+                caterwaul(2000);          // 2 s ylande
+                IrReceiver.start();
+                Serial.println("caterwaul() end");
+                break;
+                
+            case 10:
+                Serial.println("move forward!");
+                moveForward();
+                break;
 
-      // case 10..13: lägg motor/servo-styrning här om du vill
+            case 12:
+                Serial.println("move forward left!");
+                moveForwardLeft();
+                break;
+
+            case 13:
+                Serial.println("move forward right!");
+                moveForwardRight();
+                break;
+
+            case 11:
+                Serial.println("Move backward!");
+                moveBackward();
+                break;
+
+            // case 15:
+            //     Serial.println("Move backward!");
+            //     moveStop();
+            //     break;
+        }
+
+            // case 10..13: lägg motor/servo-styrning här om du vill
+        currentCommand = 0;  // viktigt: nollställ
     }
-    currentCommand = 0;  // viktigt: nollställ
-  }
 }
 
 

@@ -1,4 +1,4 @@
-#line 1 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\config.h"
+#line 1 "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\MeowBot\\config.h"
 #ifndef CONFIG_H
 #define CONFIG_H
 

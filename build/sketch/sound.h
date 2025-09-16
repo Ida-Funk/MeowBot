@@ -1,4 +1,4 @@
-#line 1 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\sound.h"
+#line 1 "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\MeowBot\\sound.h"
 #ifndef SOUND_H
 #define SOUND_H
 

@@ -3,12 +3,11 @@
 
 #include <Arduino.h>
 
-
-// extern const int motorLeft;
-// extern const int motorRight;
-
 void moveSetup();
 void moveForward();
+void moveForwardLeft();
+void moveForwardRight();
+void moveBackward();
 void moveStop();
 
-#endif // MOVE_H
+#endif

@@ -1,9 +1,9 @@
 {
-  "additionalFiles": "..\\..\\..,..\\..\\..,..\\..\\..",
+  "additionalFiles": "..\\..\\..,..\\..\\..,..\\..\\..,..\\..,..\\..,..\\..",
   "compiler.optimization_flags": "",
   "customBuildProperties": "",
   "fqbn": "arduino:avr:uno",
-  "hardwareFolders": "C:\\Users\\SEIDFUN\\AppData\\Local\\Arduino15\\packages",
-  "otherLibrariesFolders": "C:\\Users\\SEIDFUN\\Documents\\Arduino\\libraries",
-  "sketchLocation": "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\test-2"
+  "hardwareFolders": "C:\\Users\\segunyb1\\AppData\\Local\\Arduino15\\packages",
+  "otherLibrariesFolders": "C:\\Users\\segunyb1\\Documents\\Arduino\\libraries",
+  "sketchLocation": "C:\\Users\\segunyb1\\MeowBot\\MeowBot"
 }

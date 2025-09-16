@@ -1,10 +1,10 @@
-#line 1 "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\test-2\\.vscode\\arduino.json"
+#line 1 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\.vscode\\arduino.json"
 {
   "port": "COM4",
   "configuration": "",
   "output": "build",
   "board": "arduino:avr:uno",
-  "programmer": "",
+  "programmer": "arduinoasisp",
   "useProgrammer": false,
   "optimize_for_debug": false,
   "configurationRequired": false,

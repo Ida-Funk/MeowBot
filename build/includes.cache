@@ -1,19 +1,19 @@
 [
   {
-    "added_include_path": "C:\\Users\\SEIDFUN\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino"
+    "added_include_path": "C:\\Users\\segunyb1\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino"
   },
   {
-    "added_include_path": "C:\\Users\\SEIDFUN\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\standard"
+    "added_include_path": "C:\\Users\\segunyb1\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\standard"
   },
   {
     "compile": {
-      "source_path": "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\test-2\\build\\sketch\\test-2.ino.cpp",
-      "object_path": "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\test-2\\build\\sketch\\test-2.ino.cpp.o",
-      "depfile_path": "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\test-2\\build\\sketch\\test-2.ino.cpp.d"
+      "source_path": "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\build\\sketch\\MeowBot.ino.cpp",
+      "object_path": "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\build\\sketch\\MeowBot.ino.cpp.o",
+      "depfile_path": "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\build\\sketch\\MeowBot.ino.cpp.d"
     },
     "compile_task": {
       "args": [
-        "C:\\Users\\SEIDFUN\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7/bin/avr-g++",
+        "C:\\Users\\segunyb1\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7/bin/avr-g++",
         "-c",
         "-g",
         "-Os",
@@ -36,9 +36,9 @@
         "-DARDUINO=10607",
         "-DARDUINO_AVR_UNO",
         "-DARDUINO_ARCH_AVR",
-        "-IC:\\Users\\SEIDFUN\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino",
-        "-IC:\\Users\\SEIDFUN\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\standard",
-        "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\test-2\\build\\sketch\\test-2.ino.cpp",
+        "-IC:\\Users\\segunyb1\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino",
+        "-IC:\\Users\\segunyb1\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\standard",
+        "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\build\\sketch\\MeowBot.ino.cpp",
         "-o",
         "nul"
       ]
@@ -48,17 +48,17 @@
     "missing_include_h": "IRremote.h"
   },
   {
-    "added_include_path": "C:\\Users\\SEIDFUN\\Documents\\Arduino\\libraries\\IRremote\\src"
+    "added_include_path": "C:\\Users\\segunyb1\\Documents\\Arduino\\libraries\\IRremote\\src"
   },
   {
     "compile": {
-      "source_path": "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\test-2\\build\\sketch\\test-2.ino.cpp",
-      "object_path": "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\test-2\\build\\sketch\\test-2.ino.cpp.o",
-      "depfile_path": "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\test-2\\build\\sketch\\test-2.ino.cpp.d"
+      "source_path": "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\build\\sketch\\MeowBot.ino.cpp",
+      "object_path": "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\build\\sketch\\MeowBot.ino.cpp.o",
+      "depfile_path": "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\build\\sketch\\MeowBot.ino.cpp.d"
     },
     "compile_task": {
       "args": [
-        "C:\\Users\\SEIDFUN\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7/bin/avr-g++",
+        "C:\\Users\\segunyb1\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7/bin/avr-g++",
         "-c",
         "-g",
         "-Os",
@@ -81,10 +81,53 @@
         "-DARDUINO=10607",
         "-DARDUINO_AVR_UNO",
         "-DARDUINO_ARCH_AVR",
-        "-IC:\\Users\\SEIDFUN\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino",
-        "-IC:\\Users\\SEIDFUN\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\standard",
-        "-IC:\\Users\\SEIDFUN\\Documents\\Arduino\\libraries\\IRremote\\src",
-        "C:\\Users\\SEIDFUN\\Desktop\\MeowBot\\test-2\\build\\sketch\\test-2.ino.cpp",
+        "-IC:\\Users\\segunyb1\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino",
+        "-IC:\\Users\\segunyb1\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\standard",
+        "-IC:\\Users\\segunyb1\\Documents\\Arduino\\libraries\\IRremote\\src",
+        "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\build\\sketch\\MeowBot.ino.cpp",
+        "-o",
+        "nul"
+      ]
+    }
+  },
+  {
+    "missing_include_h": ""
+  },
+  {
+    "compile": {
+      "source_path": "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\build\\sketch\\sound.cpp",
+      "object_path": "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\build\\sketch\\sound.cpp.o",
+      "depfile_path": "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\build\\sketch\\sound.cpp.d"
+    },
+    "compile_task": {
+      "args": [
+        "C:\\Users\\segunyb1\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\avr-gcc\\7.3.0-atmel3.6.1-arduino7/bin/avr-g++",
+        "-c",
+        "-g",
+        "-Os",
+        "-w",
+        "-std=gnu++11",
+        "-fpermissive",
+        "-fno-exceptions",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-fno-threadsafe-statics",
+        "-Wno-error=narrowing",
+        "-flto",
+        "-w",
+        "-x",
+        "c++",
+        "-E",
+        "-CC",
+        "-mmcu=atmega328p",
+        "-DF_CPU=16000000L",
+        "-DARDUINO=10607",
+        "-DARDUINO_AVR_UNO",
+        "-DARDUINO_ARCH_AVR",
+        "-IC:\\Users\\segunyb1\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\cores\\arduino",
+        "-IC:\\Users\\segunyb1\\AppData\\Local\\Arduino15\\packages\\arduino\\hardware\\avr\\1.8.6\\variants\\standard",
+        "-IC:\\Users\\segunyb1\\Documents\\Arduino\\libraries\\IRremote\\src",
+        "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\build\\sketch\\sound.cpp",
         "-o",
         "nul"
       ]

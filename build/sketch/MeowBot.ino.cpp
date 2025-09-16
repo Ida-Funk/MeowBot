@@ -1,3 +1,5 @@
+#include <Arduino.h>
+#line 1 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
 #define RECV_PIN 11
 #define BUZZER_PIN 8
 #include <IRremote.h>
@@ -6,6 +8,11 @@
 IRrecv irrecv(RECV_PIN);
 // IrReceiverStruct *irReceiver = &IrReceiver;
 
+#line 9 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
+void setup();
+#line 17 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
+void loop();
+#line 9 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
 void setup() {
   Serial.begin(115000);
   Serial.println("Test");
@@ -30,7 +37,7 @@ void loop() {
         Serial.print("currentCommand: ");
         Serial.println(currentCommand);
     }
-    if (currentCommand!= 0) {
+    if (currentCommand != 0) {
         switch(currentCommand) {
             case 4:
                 Serial.println("meow() start");
@@ -54,4 +61,8 @@ void loop() {
 void meow(); // Gör denna avbrytbar med currentCommand
 
 void hiss(unsigned long ms);
+
+
+#line 1 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\sound.ino"
+// Funktionerna meow och hiss är nu flyttade till sound.cpp
 

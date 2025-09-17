@@ -42,4 +42,5 @@ C:\Users\segunyb1\MeowBot\MeowBot\build\sketch\MeowBot.ino.cpp.o: \
  C:\Users\segunyb1\Documents\Arduino\libraries\IRremote\src/ir_DistanceWidthProtocol.hpp \
  C:\Users\segunyb1\MeowBot\MeowBot\build\sketch\sound.h \
  C:\Users\segunyb1\MeowBot\MeowBot\build\sketch\clap.h \
- C:\Users\segunyb1\MeowBot\MeowBot\build\sketch\move.h
+ C:\Users\segunyb1\MeowBot\MeowBot\build\sketch\move.h \
+ C:\Users\segunyb1\MeowBot\MeowBot\build\sketch\app.h

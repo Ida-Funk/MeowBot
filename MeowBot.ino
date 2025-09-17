@@ -58,14 +58,16 @@ void loop() {
       else if (raw == IR_BTN_4)    currentCommand = 7;  // chirp
       else if (raw == IR_BTN_5)   currentCommand = 8;  // chatter
       //else if (raw == IR_BTN_6) currentCommand = 9;  // growl
-      else if (raw == IR_BTN_6)    currentCommand = 14; 
+      else if (raw == IR_BTN_6)    currentCommand = 14;
+      else if (raw == IR_BTN_8)    currentCommand = 19;  // hopAndPlaySafe
+      else if (raw == IR_BTN_9)    currentCommand = 20;  // hopAndPlaySafe
       else if (raw == IR_BTN_UP)  currentCommand = 10;
       else if (raw == IR_BTN_DOWN) {
         currentCommand = 11;
     }
       else if (raw == IR_BTN_LEFT) {/* currentCommand = 12; */}
       else if (raw == IR_BTN_RIGHT){/* currentCommand = 13; */}
-      else if (raw == IR_BTN_MID){ currentCommand = 20; }
+      else if (raw == IR_BTN_MID){ currentCommand = 16; }
     //   else if (raw == IR_BTN_LEFT) {/* currentCommand = 12; */}
     //   else if (raw == IR_BTN_RIGHT){/* currentCommand = 13; */}
     }
@@ -143,10 +145,18 @@ void loop() {
                 Serial.println("caterwaul() end");
                 break;
                        break;
-      case 20:
-        Serial.println("hopAndPlaySafe()");
-        hopAndPlaySafe();
-        break;
+            case 19:
+                Serial.println("runAndPlaySafe()");
+                IrReceiver.stop();
+                runAndPlaySafe();
+                IrReceiver.start();
+                break;
+            case 20:
+                Serial.println("hopAndPlaySafe()");
+                IrReceiver.stop();
+                hopAndPlaySafe();
+                IrReceiver.start();
+                break;
                 
             case 10:
                 Serial.println("move forward!");

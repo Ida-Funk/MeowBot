@@ -2,13 +2,15 @@
 #line 1 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
 #define RECV_PIN 11
 #define BUZZER_PIN 8
-// #define TRIGG_PIN 4
-// #define ECCO_PIN 5
+
 #include <IRremote.h>
 #include "sound.h"
 #include "clap.h"
 #include "move.h"
+#include "app.h"
 
+#define TRIG_PIN A4    // Välj rätt pin-nummer för din hårdvara
+#define ECHO_PIN A5   // Välj rätt pin-nummer för din hårdvara
 // --- IR-knappar (raw codes från sniff) ---
 #define IR_BTN_1      0xFB040707
 #define IR_BTN_2      0xFA050707
@@ -16,22 +18,24 @@
 #define IR_BTN_4      0xF7080707
 #define IR_BTN_5      0xF6090707
 #define IR_BTN_6      0xF50A0707
-
+#define IR_BTN_7      0xF30C0707
+#define IR_BTN_8      0xF20D0707
+#define IR_BTN_9      0xF10E0707
 #define IR_BTN_UP     0x9F600707
 #define IR_BTN_DOWN   0x9E610707
 #define IR_BTN_LEFT   0x9A650707
 #define IR_BTN_RIGHT  0x9D620707
-
+#define IR_BTN_MID  0x97680707
 IRrecv irrecv(RECV_PIN);
 
 volatile int currentCommand = 0; // 4=meow, 5=hiss (enligt din switch)
 const int MIC_PIN = A0;          // ← mic på A0
 
-#line 28 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
+#line 32 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
 void setup();
-#line 38 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
+#line 42 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
 void loop();
-#line 28 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
+#line 32 "C:\\Users\\segunyb1\\MeowBot\\MeowBot\\MeowBot.ino"
 void setup() {  
     moveSetup();
 
@@ -39,7 +43,7 @@ void setup() {
     Serial.println("Start");
     IrReceiver.begin(RECV_PIN, ENABLE_LED_FEEDBACK); // Starta mottagaren
     clapSetup(MIC_PIN);            // ← starta klappdetektering
-
+    appSetup();
 }
 
 void loop() {
@@ -61,13 +65,16 @@ void loop() {
       else if (raw == IR_BTN_4)    currentCommand = 7;  // chirp
       else if (raw == IR_BTN_5)   currentCommand = 8;  // chatter
       //else if (raw == IR_BTN_6) currentCommand = 9;  // growl
-      else if (raw == IR_BTN_6)    currentCommand = 14; 
-      else if (raw == IR_BTN_UP){ 
-        currentCommand = 10;
-     }
-      else if (raw == IR_BTN_DOWN) { 
+      else if (raw == IR_BTN_6)    currentCommand = 14;
+      else if (raw == IR_BTN_8)    currentCommand = 19;  // hopAndPlaySafe
+      else if (raw == IR_BTN_9)    currentCommand = 20;  // hopAndPlaySafe
+      else if (raw == IR_BTN_UP)  currentCommand = 10;
+      else if (raw == IR_BTN_DOWN) {
         currentCommand = 11;
     }
+      else if (raw == IR_BTN_LEFT) {/* currentCommand = 12; */}
+      else if (raw == IR_BTN_RIGHT){/* currentCommand = 13; */}
+      else if (raw == IR_BTN_MID){ currentCommand = 16; }
     //   else if (raw == IR_BTN_LEFT) {/* currentCommand = 12; */}
     //   else if (raw == IR_BTN_RIGHT){/* currentCommand = 13; */}
     }
@@ -144,6 +151,19 @@ void loop() {
                 IrReceiver.start();
                 Serial.println("caterwaul() end");
                 break;
+                       break;
+            case 19:
+                Serial.println("runAndPlaySafe()");
+                IrReceiver.stop();
+                runAndPlaySafe();
+                IrReceiver.start();
+                break;
+            case 20:
+                Serial.println("hopAndPlaySafe()");
+                IrReceiver.stop();
+                hopAndPlaySafe();
+                IrReceiver.start();
+                break;
                 
             case 10:
                 Serial.println("move forward!");
@@ -160,5 +180,3 @@ void loop() {
         currentCommand = 0;  // viktigt: nollställ
     }
 }
-
-

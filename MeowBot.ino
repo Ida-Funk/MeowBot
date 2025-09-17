@@ -20,10 +20,12 @@
 #define IR_BTN_8      0xF20D0707
 #define IR_BTN_9      0xF10E0707
 #define IR_BTN_UP     0x9F600707
-#define IR_BTN_DOWN   0x9E610707
 #define IR_BTN_LEFT   0x9A650707
 #define IR_BTN_RIGHT  0x9D620707
-#define IR_BTN_MID  0x97680707
+#define IR_BTN_MID    0x97680707
+#define IR_BTN_DOWN   0x9E610707
+// #define IR_BTN_OK
+
 IRrecv irrecv(RECV_PIN);
 
 volatile int currentCommand = 0; // 4=meow, 5=hiss (enligt din switch)
@@ -65,11 +67,15 @@ void loop() {
       else if (raw == IR_BTN_DOWN) {
         currentCommand = 11;
     }
-      else if (raw == IR_BTN_LEFT) {/* currentCommand = 12; */}
-      else if (raw == IR_BTN_RIGHT){/* currentCommand = 13; */}
-      else if (raw == IR_BTN_MID){ currentCommand = 16; }
-    //   else if (raw == IR_BTN_LEFT) {/* currentCommand = 12; */}
-    //   else if (raw == IR_BTN_RIGHT){/* currentCommand = 13; */}
+      else if (raw == IR_BTN_MID) {
+         currentCommand = 16; 
+        }
+      else if (raw == IR_BTN_LEFT) { 
+        currentCommand = 12; 
+    }
+      else if (raw == IR_BTN_RIGHT){
+         currentCommand = 13; 
+        }
     }
 
     IrReceiver.resume();
@@ -163,10 +169,25 @@ void loop() {
                 moveForward();
                 break;
 
-            case 11:
-                Serial.println("move forward!");
-                moveStop();
+            case 12:
+                Serial.println("move forward left!");
+                moveForwardLeft();
                 break;
+
+            case 13:
+                Serial.println("move forward right!");
+                moveForwardRight();
+                break;
+
+            case 11:
+                Serial.println("Move backward!");
+                moveBackward();
+                break;
+
+            // case 15:
+            //     Serial.println("Move backward!");
+            //     moveStop();
+            //     break;
         }
 
             // case 10..13: lägg motor/servo-styrning här om du vill

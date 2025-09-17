@@ -5,14 +5,18 @@
 
 // extern const int motorLeft;
 // extern const int motorRight;
-void moveForward();
-
 void moveSetup();  // init pins, stoppa motorer
 
 void moveForward(int spd);
 void moveBackward(int spd);
 void moveLeft(int spd);
 void moveRight(int spd);
+
+void moveForward();
+void moveForwardLeft();
+void moveForwardRight();
+void moveBackward();
+
 void moveStop();
 
-#endif // MOVE_H
+#endif

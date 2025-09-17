@@ -12,10 +12,10 @@ void moveBackward(int spd);
 void moveLeft(int spd);
 void moveRight(int spd);
 
-void moveForward();
-void moveForwardLeft();
-void moveForwardRight();
-void moveBackward();
+// void moveForward();
+// void moveForwardLeft();
+// void moveForwardRight();
+// void moveBackward();
 
 void moveStop();
 

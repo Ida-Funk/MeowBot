@@ -7,16 +7,16 @@ extern volatile int currentCommand;
 const int BUZZER_PIN = 8;
 
 void meow() {
-    for (int m = 0; m < 4; m++) {
-        for (int freq = 1200; freq >= 600; freq -= 2) {
-            tone(BUZZER_PIN, freq);
-            delay(6);
-        }
-        noTone(BUZZER_PIN);
-        if(m < 3){
-            delay (700);
-        }
+  // for (int m = 0; m < 4; m++) {
+    for (int freq = 1200; freq >= 600; freq -= 2) {
+        tone(BUZZER_PIN, freq);
+        delay(6);
     }
+    noTone(BUZZER_PIN);
+    // if(m < 3){
+    //     delay (700);
+    // }
+  // }
 }
 
 void hiss(unsigned long ms) {

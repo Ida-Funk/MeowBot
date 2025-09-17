@@ -166,28 +166,28 @@ void loop() {
                 
             case 10:
                 Serial.println("move forward!");
-                moveForward();
+                moveForward(120);
                 break;
 
             case 12:
                 Serial.println("move forward left!");
-                moveForwardLeft();
+                moveLeft(120);
                 break;
 
             case 13:
                 Serial.println("move forward right!");
-                moveForwardRight();
+                moveRight(120);
                 break;
 
             case 11:
                 Serial.println("Move backward!");
-                moveBackward();
+                moveBackward(50);
                 break;
 
-            // case 15:
-            //     Serial.println("Move backward!");
-            //     moveStop();
-            //     break;
+            case 16:
+                Serial.println("Move stop!");
+                moveStop();
+                break;
         }
 
             // case 10..13: lägg motor/servo-styrning här om du vill

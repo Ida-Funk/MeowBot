@@ -7,50 +7,50 @@ const int IN2 = 4;
 const int IN3 = 6;
 const int IN4 = 7;
 
-const int MotorB1 = 4; // in1
-const int MotorB2 = 5; // in2
+// const int MotorB1 = 4; // in1
+// const int MotorB2 = 5; // in2
 
-const int MotorA2 = 6;  //in3
-const int MotorA1 = 7; // in4
+// const int MotorA2 = 6;  //in3
+// const int MotorA1 = 7; // in4
 
 void moveSetup(){
-    pinMode(MotorA1, OUTPUT);
-    pinMode(MotorA2, OUTPUT);
-    pinMode(MotorB1, OUTPUT);
-    pinMode(MotorB2, OUTPUT);
+    pinMode(IN1, OUTPUT);
+    pinMode(IN2, OUTPUT);
+    pinMode(IN3, OUTPUT);
+    pinMode(IN4, OUTPUT);
 }
 
-void moveBackward() {
-    digitalWrite(MotorA1, LOW);
-    digitalWrite(MotorA2, HIGH);
+// void moveBackward() {
+//     digitalWrite(MotorA1, LOW);
+//     digitalWrite(MotorA2, HIGH);
 
-    digitalWrite(MotorB1, LOW);
-    digitalWrite(MotorB2, HIGH);
-}
+//     digitalWrite(MotorB1, LOW);
+//     digitalWrite(MotorB2, HIGH);
+// }
 
-void moveForward() {
-    digitalWrite(MotorA1, HIGH);
-    digitalWrite(MotorA2, LOW);
+// void moveForward() {
+//     digitalWrite(MotorA1, HIGH);
+//     digitalWrite(MotorA2, LOW);
 
-    digitalWrite(MotorB1, HIGH);
-    digitalWrite(MotorB2, LOW);
-}
+//     digitalWrite(MotorB1, HIGH);
+//     digitalWrite(MotorB2, LOW);
+// }
 
-void moveForwardLeft(){
-    digitalWrite(MotorA1, LOW);
-    digitalWrite(MotorA2, LOW);
+// void moveForwardLeft(){
+//     digitalWrite(MotorA1, LOW);
+//     digitalWrite(MotorA2, LOW);
 
-    digitalWrite(MotorB1, HIGH);
-    digitalWrite(MotorB2, LOW);
-}
+//     digitalWrite(MotorB1, HIGH);
+//     digitalWrite(MotorB2, LOW);
+// }
 
-void moveForwardRight(){
-    digitalWrite(MotorA1, HIGH);
-    digitalWrite(MotorA2, LOW);
+// void moveForwardRight(){
+//     digitalWrite(MotorA1, HIGH);
+//     digitalWrite(MotorA2, LOW);
 
-    digitalWrite(MotorB1, LOW);
-    digitalWrite(MotorB2, LOW);
-}
+//     digitalWrite(MotorB1, LOW);
+//     digitalWrite(MotorB2, LOW);
+// }
 
 // void moveBackwardRight(){
 //     digitalWrite(MotorA1, LOW);
@@ -69,25 +69,25 @@ void moveForwardRight(){
 // }
 
 void moveStop(){
-    digitalWrite(MotorA1, LOW);
-    digitalWrite(MotorA2, LOW);
+    digitalWrite(IN1, 0); 
+    digitalWrite(IN2, 0);
 
-    digitalWrite(MotorB1, LOW);
-    digitalWrite(MotorB2, LOW);  
-}
-void moveForward(int spd) {
-  digitalWrite(IN1, LOW); digitalWrite(IN2, HIGH);
-  digitalWrite(IN3, LOW); digitalWrite(IN4, HIGH);
+    digitalWrite(IN3, 0); 
+    digitalWrite(IN4, 0);  
 }
 void moveBackward(int spd) {
+  digitalWrite(IN1, spd); digitalWrite(IN2, 0);
+  digitalWrite(IN3, spd); digitalWrite(IN4, 0);
+}
+void moveForward(int spd) {
   digitalWrite(IN1, 0);   digitalWrite(IN2, spd);
   digitalWrite(IN3, 0);   digitalWrite(IN4, spd);
 }
-void moveLeft(int spd) {
+void moveRight(int spd) {
   digitalWrite(IN1, 0);   digitalWrite(IN2, spd);
   digitalWrite(IN3, spd); digitalWrite(IN4, 0);
 }
-void moveRight(int spd) {
+void moveLeft(int spd) {
   digitalWrite(IN1, spd); digitalWrite(IN2, 0);
   digitalWrite(IN3, 0);   digitalWrite(IN4, spd);
 }
